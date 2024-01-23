@@ -1,0 +1,34 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)
+// swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name IDCaptureMedium
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AudioToolbox
+import CoreGraphics
+import DeveloperToolsSupport
+import Foundation
+import IDentityMediumSDK
+import Swift
+import SwiftUI
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public struct ValidateIdResult {
+  public var front: IDentityMediumSDK.DetectedData
+  public var back: IDentityMediumSDK.DetectedData?
+  public func submit(additionalDocuments: [IDentityMediumSDK.AdditionalDocumentsRequest]? = nil, completion: @escaping IDentityMediumSDK.ValidateIdAPICompletion)
+}
+public typealias ValidateIdCompletion = (_ result: Swift.Result<IDCaptureMedium.ValidateIdResult, any Swift.Error>) -> Swift.Void
+public typealias AutofillCompletion = (_ result: Swift.Result<IDentityMediumSDK.AutofillResult, any Swift.Error>) -> Swift.Void
+extension IDentityMediumSDK.IDentitySDK {
+  public static var customerValidateIdRequest: IDentityMediumSDK.CustomerValidateIdRequestV3?
+  public class func idValidation(from presenter: UIKit.UIViewController, options: IDentityMediumSDK.AdditionalCustomerWFlagCommonDataV3, captureBack: Swift.Bool = true, completion: @escaping IDCaptureMedium.ValidateIdCompletion)
+  public class func idValidation(from presenter: UIKit.UIViewController, options: IDentityMediumSDK.AdditionalCustomerWFlagCommonDataV3, idType: Swift.String, idCountry: Swift.String, idState: Swift.String?, completion: @escaping IDCaptureMedium.ValidateIdCompletion)
+  public class func autofill(from presenter: UIKit.UIViewController, completion: @escaping IDCaptureMedium.AutofillCompletion)
+}
+extension IDentityMediumSDK.StateMasterVO : Swift.Equatable {
+  public static func == (lhs: IDentityMediumSDK.StateMasterVO, rhs: IDentityMediumSDK.StateMasterVO) -> Swift.Bool
+}
+extension IDentityMediumSDK.CountryMaster : Swift.Equatable {
+  public static func == (lhs: IDentityMediumSDK.CountryMaster, rhs: IDentityMediumSDK.CountryMaster) -> Swift.Bool
+}
